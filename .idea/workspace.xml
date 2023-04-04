@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a23e1447-c7ed-42f7-afc3-cf630801f0bb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JeuxDeRole.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Equipement/Arme.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Equipement/Armure.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Equipement/Equipement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Histoire/Livre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Position/Labyrinthe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Position/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Position/Salle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Protagoniste/Hero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Protagoniste/Monstre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Protagoniste/Personnage.java" afterDir="false" />
+    <list default="true" id="a23e1447-c7ed-42f7-afc3-cf630801f0bb" name="Changes" comment="Base du jeux.&#10;Comprend : Equipements, Personnages, Labyrinthe, déplacements dans le labyrinthe sans la méchanique des portes.">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Histoire/Livre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Histoire/Livre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Position/Labyrinthe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Position/Labyrinthe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Position/Salle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Position/Salle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +38,6 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "vue.rearranger.settings.migration": "true"
   }
@@ -83,11 +70,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680607752661</updated>
-      <workItem from="1680607753992" duration="5060000" />
+      <workItem from="1680607753992" duration="7221000" />
     </task>
+    <task id="LOCAL-00001" summary="Base du jeux.&#10;Comprend : Equipements, Personnages, Labyrinthe, déplacements dans le labyrinthe sans la méchanique des portes.">
+      <created>1680612960281</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680612960281</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Base du jeux.&#10;Comprend : Equipements, Personnages, Labyrinthe, déplacements dans le labyrinthe sans la méchanique des portes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Base du jeux.&#10;Comprend : Equipements, Personnages, Labyrinthe, déplacements dans le labyrinthe sans la méchanique des portes." />
   </component>
 </project>

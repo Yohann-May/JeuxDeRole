@@ -22,45 +22,43 @@ public class Labyrinthe {
     }
 
     public void deplacer(Personnage personnage, String direction) {
-       int x = personnage.getPosition().getX();
-       int y = personnage.getPosition().getY();
+       Salle[] portes = getSalle(personnage.getPosition()).getPortes();
         switch (direction) {
             case "N" -> {
-                if (getSalle(new Position(x - 1, y)) != null) {
-                    x -= 1;
+                if (portes[0] != null) {
                     System.out.println(personnage.getNom() + " se deplace vers le Nord");
+                    personnage.seDeplacer(portes[0].getPosition());
                 }
                 else
-                    System.out.println("Il n'y a pas de salle vers le Nord");
+                    System.out.println("Il n'y a pas de porte vers le Nord");
             }
             case "S" -> {
-                if (getSalle(new Position(x + 1, y)) != null) {
-                    x += 1;
+                if (portes[1] != null) {
                 System.out.println(personnage.getNom() + " se deplace vers le Sud");
+                    personnage.seDeplacer(portes[1].getPosition());
                 }
                 else
-                    System.out.println("Il n'y a pas de salle vers le Sud");
+                    System.out.println("Il n'y a pas de porte vers le Sud");
             }
             case "O" -> {
-                if (getSalle(new Position(x, y - 1)) != null) {
-                    y -= 1;
+                if (portes[2] != null) {
                     System.out.println(personnage.getNom() + " se deplace vers l'Ouest");
+                    personnage.seDeplacer(portes[2].getPosition());
                 }
                 else
-                    System.out.println("Il n'y a pas de salle vers l'Ouest");
+                    System.out.println("Il n'y a pas de porte vers l'Ouest");
             }
             case "E" -> {
-                if (getSalle(new Position(x, y + 1)) != null) {
-                    y += 1;
+                if (portes[3] != null) {
                     System.out.println(personnage.getNom() + " se deplace vers l'Est");
+                    personnage.seDeplacer(portes[3].getPosition());
                 }
                 else
-                    System.out.println("Il n'y a pas de salle vers l'Est");
+                    System.out.println("Il n'y a pas de porte vers l'Est");
             }
             default -> {
-                System.out.println("Il n'y a pas de salle dans cette direction");
+                System.out.println("Il n'y a pas de porte dans cette direction");
             }
         }
-        personnage.seDeplacer(new Position(x, y));
     }
 }
