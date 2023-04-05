@@ -34,6 +34,7 @@ public class BoundaryHistoire {
         Salle suivante = this.labyrinthe.deplacer(hero, selectionDirection());
         // combat automatique
         if (suivante.contientMonstre()) { // combat si la salle contient un monstre
+            System.out.println(this.hero.getNom() + " rencontre un(e) " + suivante.getMonstre().getNom());
             if (this.labyrinthe.combattre(this.hero, suivante.getMonstre())) { // return true si fuite du hero
                 // fuite, le monstre regagne sa vie
                 suivante.getMonstre().setVie(suivante.getMonstre().getVieMax());
@@ -45,7 +46,7 @@ public class BoundaryHistoire {
                 this.hero.setVie(this.hero.getVieMax()); // Regeneration du hero
                 enCours = suivante;
                 if (enCours.contientTresor()) {
-                    System.out.println(this.hero.getNom() + " trouve un " + enCours.getTresor().getNom());
+                    System.out.println(this.hero.getNom() + " trouve un(e) " + enCours.getTresor().getNom());
                     this.hero.recupererEquipement(enCours.getTresor());
                 }
             }

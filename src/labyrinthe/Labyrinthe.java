@@ -98,10 +98,7 @@ public class Labyrinthe {
         do {
             /* Le hero choisit de fuir ou combattre */
             do {
-                System.out.println("Que voulez vous faire ?");
-                System.out.println("1 - Fuir le combat");
-                System.out.println("2 - Continuer le combat");
-                System.out.print("Entrez un nombre : ");
+                System.out.print("Voulez vous Fuir (1) ou Combattre (2) ? ");
                 choix = Clavier.entrerClavierInt();
             } while (choix < 1 || choix > 2);
             fuir = choix == 1; // true si le hero decide de fuir
@@ -109,9 +106,9 @@ public class Labyrinthe {
                 /* Degats aleatoires */
                 alea = (int) (Math.random() * 100);
                 if (alea > 50) {
-                    hero.subirAttaque(1, monstre); // Le hero subit des degats
+                    hero.subirAttaque(monstre); // Le hero subit des degats
                 } else {
-                    monstre.subirAttaque(1, hero); // Le monstre subit des degats
+                    monstre.subirAttaque(hero); // Le monstre subit des degats
                 }
             }
         } while ((hero.estMort() && monstre.estMort()) && !fuir);

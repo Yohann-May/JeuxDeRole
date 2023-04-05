@@ -45,8 +45,19 @@ public class Personnage {
     /**
      * TODO commenter
      */
-    public void subirAttaque(int degats, Personnage personnage) {
+    public void subirAttaque(Personnage personnage) {
         // TODO ajouter la vie de l'armure
+        int degats = this.arme == null ? 1 : this.arme.getDegats();
+        degats = this.armure == null ? degats : this.armure.subirDegats(degats);
+        subirAttaque(degats, personnage);
+    }
+
+    /**
+     * TODO commenter
+     * @param degats
+     * @param personnage
+     */
+    public void subirAttaque(int degats, Personnage personnage) {
         this.vieActuelle -= degats;
         System.out.println(this.getNom() + " subit une violente attaque de " + personnage.getNom());
         if (this.getVie() <= 0) {
