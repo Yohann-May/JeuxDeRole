@@ -4,13 +4,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * TODO commenter
+ * Classe Clavier
+ * Permet de saisir au clavier dans le jeu
  */
 public class Clavier {
     private static Scanner scanner = new Scanner(System.in);
 
     /**
-     * TODO commenter
+     * @return entier saisit au clavier
      */
     public static int entrerClavierInt() {
         try {
@@ -23,7 +24,7 @@ public class Clavier {
     }
 
     /**
-     * TODO commenter
+     * @return texte entrer au clavier
      */
     public static String entrerClavierString() {
         return scanner.next();

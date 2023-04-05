@@ -4,20 +4,24 @@ import protagonistes.*;
 import vue.Clavier;
 
 /**
- * TODO commenter
+ * Classe Labyrinthe
+ * Contient la "map" du jeu sous forme de tableau
  */
 public class Labyrinthe {
     private Salle[][] labyrinthe;
 
     /**
-     * TODO commenter
+     * Constructeur de la classe Labyrinthe
+     * @param x le nombre de ligne dans le tableau
+     * @param y le nombre de colonne dans le tableau
      */
     public Labyrinthe(int x, int y) {
         this.labyrinthe = new Salle[x][y];
     }
 
     /**
-     * TODO commenter
+     * Ajoute une/des salle(s) au labyrinthe
+     * @param salles salle(s) a ajouter
      */
     public void ajouterSalle(Salle... salles) {
         for (int i = 0; i < salles.length; i++) {
@@ -26,7 +30,9 @@ public class Labyrinthe {
     }
 
     /**
-     * TODO commenter
+     * Ajoute une porte entre deux salles
+     * @param entree salle d'ou l'on vient
+     * @param sortie salle vers ou l'on se dirige
      */
     public void ajouterPorte(Salle entree, Salle sortie) {
         entree.ajouterPorte(sortie);
@@ -34,14 +40,18 @@ public class Labyrinthe {
     }
 
     /**
-     * TODO commenter
+     * @param position position de la salle recherchee
+     * @return la salle à la position donne
      */
     public Salle getSalle(Position position) {
         return labyrinthe[position.getX()][position.getY()];
     }
 
     /**
-     * TODO commenter
+     * Deplace le personnage dans la direction donnee
+     * @param personnage personnage a deplacer
+     * @param direction direction dans laquelle aller
+     * @return la salle dans laquelle le personnage vient de se deplacer
      */
     public Salle deplacer(Personnage personnage, String direction) {
        Salle[] portes = getSalle(personnage.getPosition()).getPortes();

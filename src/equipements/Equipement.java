@@ -1,20 +1,22 @@
 package equipements;
 
 /**
- * TODO commenter
+ * Classe Equipement
+ * Permet de gerer les Arme et Armure d'un joueur
  */
 public class Equipement {
     protected String nom;
 
     /**
-     * TODO commenter
+     * Constructeur de la classe Equipement
+     * @param nom nom de l'equipement
      */
     public Equipement(String nom) {
         this.nom = nom;
     }
 
     /**
-     * TODO commenter
+     * @return le nom de l'equipement
      */
     public String getNom() {
         return this.nom;

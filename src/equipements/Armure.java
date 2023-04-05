@@ -1,13 +1,16 @@
 package equipements;
 
 /**
- * TODO commenter
+ * Classe Armure
+ * Permet de gerer l'armure d'un joueur
  */
 public class Armure extends Equipement {
     private int vie;
 
     /**
-     * TODO commenter
+     * Constructeur de la classe Armure
+     * @param nom nom de l'armure
+     * @param vie vie pouvant etre encaisse par l'armure
      */
     public Armure(String nom, int vie) {
         super(nom);

@@ -5,7 +5,8 @@ import labyrinthe.Position;
 import vue.Clavier;
 
 /**
- * TODO commenter
+ * Classe Personnage
+ * Permet de gerer des personnages ayant une position, un nom, un nombre de point de vie, une arme et une armure
  */
 public class Personnage {
     protected Position position;
@@ -16,7 +17,9 @@ public class Personnage {
     protected Armure armure;
 
     /**
-     * TODO commenter
+     * Constructeur de la classe Personnage
+     * @param nom nom du personnage
+     * @param vie points de vie du personnage
      */
     public Personnage(String nom, int vie) {
         this.nom = nom;
@@ -26,75 +29,87 @@ public class Personnage {
     }
 
     /**
-     * TODO commenter
+     * @return le nom du personnage
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * TODO commenter
+     * @return la vie actuelle du personnage
      */
     public int getVie() {
         return vieActuelle;
     }
+
+    /**
+     * @return lavie max du personnage
+     */
     public int getVieMax() {
         return vieMax;
     }
 
     /**
-     * TODO commenter
+     * Le personnage (this) subit une attaque d'un attaquant
+     * @param attaquant personnage donnant l'attaque
      */
-    public void subirAttaque(Personnage personnage) {
-        // TODO ajouter la vie de l'armure
-        int degats = this.arme == null ? 1 : this.arme.getDegats();
+    public void subirAttaque(Personnage attaquant) {
+        int degats = attaquant.getArme() == null ? 1 : attaquant.getArme().getDegats();
         degats = this.armure == null ? degats : this.armure.subirDegats(degats);
-        subirAttaque(degats, personnage);
+        subirAttaque(degats);
+        System.out.println(this.getNom() + " subit une violente attaque de " + attaquant.getNom());
     }
 
     /**
-     * TODO commenter
-     * @param degats
-     * @param personnage
+     * @return l'arme du personnage
      */
-    public void subirAttaque(int degats, Personnage personnage) {
+    private Arme getArme() {
+        return this.arme;
+    }
+
+    /**
+     * Le personnage subit un nombre de degats, meurt si la vie tombe en dessous de 0
+     * @param degats degats a subir
+     */
+    public void subirAttaque(int degats) {
         this.vieActuelle -= degats;
-        System.out.println(this.getNom() + " subit une violente attaque de " + personnage.getNom());
         if (this.getVie() <= 0) {
             mourir();
         }
     }
 
     /**
-     * TODO commenter
+     * @return la position du personnage
      */
     public Position getPosition() {
         return position;
     }
 
     /**
-     * TODO commenter
+     * Deplace le personnage dans le labyrinthe
+     * @param position position a laquelle se deplacer
      */
     public void seDeplacer(Position position) {
         this.position = position;
     }
 
     /**
-     * TODO commenter
+     * @return true si le personnage est mort | false sinon
      */
     public boolean estMort() {
         return this.getVie() > 0;
     }
 
     /**
-     * TODO commenter
+     * Fait mourir le personnage
      */
     public void mourir() {
         System.out.println("Le " + getNom() + " succombe à ses blessures...");
     }
 
     /**
-     * TODO commenter
+     * Attribue un equipement au personnage
+     * @param e l'equipement a equiper
      */
     public void recupererEquipement(Equipement e) {
         int choix;
@@ -129,9 +144,18 @@ public class Personnage {
         }
     }
 
+    /**
+     * Attribue i vie au personnage
+     * @param i vie a attribuer
+     */
     public void setVie(int i) {
         this.vieActuelle = i;
     }
+
+    /**
+     * Change la valeur maximale de la vie du personnage
+     * @param i nouvelle valeur maximale
+     */
     public void setVieMax(int i) {
         this.vieMax = i;
     }

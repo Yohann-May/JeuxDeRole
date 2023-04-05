@@ -1,14 +1,17 @@
 package labyrinthe;
 
 /**
- * TODO commenter
+ * Classe Position
+ * Permet de gerer les positions dans le labyrinthe
  */
 public class Position {
     private int x;
     private int y;
 
     /**
-     * TODO commenter
+     * Constructeur de la classe Position
+     * @param x la position sur la ligne du labyrinthe
+     * @param y la position sur la colonne du labyrinthe
      */
     public Position(int x, int y) {
         this.x = x;
@@ -16,14 +19,14 @@ public class Position {
     }
 
     /**
-     * TODO commenter
+     * @return la position sur la ligne du labyrinthe
      */
     public int getX() {
         return x;
     }
 
     /**
-     * TODO commenter
+     * @return la position sur la colonne du labyrinthe
      */
     public int getY() {
         return y;

@@ -8,11 +8,13 @@ import labyrinthe.Salle;
 import protagonistes.Monstre;
 
 /**
- * TODO commenter
+ * Classe BoundaryCreerLabyrinthe
+ * Permet de creer des labyrinthe par un maitre du jeu ou automatiquement
  */
 public class BoundaryCreerLabyrinthe {
     /**
-     * TODO commenter
+     * Creation d'un labyrinthe par un maitre du jeu
+     * @return le labyrinthe cree
      */
     public static Labyrinthe creerLabyrinthe() {
         // TODO creation labyrinthe par maitre du jeu
@@ -20,7 +22,7 @@ public class BoundaryCreerLabyrinthe {
     }
 
     /**
-     * Creation d'un labyrinthe automatique
+     * @return un labyrinthe generer automatiquement
      */
     public static Labyrinthe labyrintheStarter() {
         Labyrinthe labyrinthe = new Labyrinthe(6, 6);

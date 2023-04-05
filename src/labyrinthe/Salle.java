@@ -4,7 +4,9 @@ import equipements.*;
 import protagonistes.Monstre;
 
 /**
- * TODO commenter
+ * Classe Salle
+ * Une salle est une piece dans le labyrinthe elle peut etre relie a d'autre salle par des portes
+ * Peut contenir des monstres et/ou des tresors
  */
 public class Salle {
     private Position position;
@@ -30,7 +32,7 @@ public class Salle {
     }
 
     /**
-     * Cette fonction ajoute une salle accessible par une porte.
+     * Ajoute une salle accessible par une porte.
      * La salle est stockee dans le parametre "portes" composé comme cela
      * |Nord|Sud|Ouest|Est|
      * @param salle nouvelle salle a relier (par une porte)
@@ -77,10 +79,16 @@ public class Salle {
         return this.tresor != null;
     }
 
+    /**
+     * @return le monstre dans la salle
+     */
     public Monstre getMonstre() {
         return this.monstre;
     }
 
+    /**
+     * @return le tresor dans la salle
+     */
     public Equipement getTresor() {
         return this.tresor;
     }

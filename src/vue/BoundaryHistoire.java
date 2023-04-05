@@ -11,21 +11,23 @@ import protagonistes.Monstre;
 import java.util.Objects;
 
 /**
- * TODO commenter
+ * Classe BoundaryHistoire
+ * Permet de gerer l'histoire d'un hero dans un labyrinthe
  */
 public class BoundaryHistoire {
     private Hero hero;
     private Labyrinthe labyrinthe;
 
     /**
-     * TODO commenter
+     * Constructeur de la classe BoundaryHistoire
+     * @param hero hero de l'histoire
      */
     public BoundaryHistoire(Hero hero) {
         this.hero = hero;
     }
 
     /**
-     * TODO commenter
+     * Realisation d'un tour pour le joueur
      */
     public void tourJoueur() {
         Salle enCours = this.labyrinthe.getSalle(this.hero.getPosition()); // Recuperation de la salle de depart
@@ -53,6 +55,9 @@ public class BoundaryHistoire {
         }
     }
 
+    /**
+     * @return la direction selectionne au clavier
+     */
     private String selectionDirection() {
         String choix;
         do {
@@ -62,6 +67,10 @@ public class BoundaryHistoire {
         return choix;
     }
 
+    /**
+     * Affecte un labyrinthe a l'histoire
+     * @param labyrinthe labyrinthe a attribuer
+     */
     public void setLabyrinthe(Labyrinthe labyrinthe) {
         this.labyrinthe = labyrinthe;
     }

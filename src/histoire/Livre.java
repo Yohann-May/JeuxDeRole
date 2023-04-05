@@ -7,12 +7,14 @@ import vue.BoundaryCreerLabyrinthe;
 import vue.BoundaryHistoire;
 
 /**
- * TODO commenter
+ * Classe Livre
+ * Permet de gérer l'histoire du jeu
  */
 public class Livre {
 
     /**
-     * TODO commenter
+     * Classe main pour realiser des tests
+     * @param args
      */
     public static void main(String[] args) {
 //        Salle enCours;
