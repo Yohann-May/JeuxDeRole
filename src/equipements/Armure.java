@@ -1,4 +1,4 @@
-package Equipement;
+package equipements;
 
 public class Armure extends Equipement {
     private int vie;

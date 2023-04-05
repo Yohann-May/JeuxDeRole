@@ -1,4 +1,4 @@
-package Position;
+package labyrinthe;
 
 public class Position {
     private int x;

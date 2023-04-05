@@ -1,6 +1,6 @@
-package Position;
+package labyrinthe;
 
-import Protagoniste.*;
+import protagonistes.*;
 public class Labyrinthe {
     private Salle[][] labyrinthe;
 
@@ -21,7 +21,7 @@ public class Labyrinthe {
         return labyrinthe[position.getX()][position.getY()];
     }
 
-    public void deplacer(Personnage personnage, String direction) {
+    public Salle deplacer(Personnage personnage, String direction) {
        Salle[] portes = getSalle(personnage.getPosition()).getPortes();
         switch (direction) {
             case "N" -> {
@@ -60,5 +60,24 @@ public class Labyrinthe {
                 System.out.println("Il n'y a pas de porte dans cette direction");
             }
         }
+        return this.labyrinthe[personnage.getPosition().getX()][personnage.getPosition().getY()];
+    }
+
+    /**
+     * Combat entre un monstre et un joueur, un seul tour
+     * @param hero joueur
+     * @param monstre monstre
+     */
+    public void combattre(Hero hero, Monstre monstre) {
+        int alea;
+        do {
+            alea = (int) (Math.random() * 100);
+            if (alea > 50) {
+                hero.subirAttaque(1, monstre);
+            } else {
+                monstre.subirAttaque(1, hero);
+            }
+            // Fuir ou continuer
+        } while (hero.estMort() && monstre.estMort());
     }
 }

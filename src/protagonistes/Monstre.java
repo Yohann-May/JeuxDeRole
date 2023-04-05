@@ -1,4 +1,4 @@
-package Protagoniste;
+package protagonistes;
 
 public class Monstre extends Personnage {
     public Monstre(String nom, int vie) {

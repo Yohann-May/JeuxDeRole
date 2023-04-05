@@ -1,7 +1,7 @@
-package Position;
+package labyrinthe;
 
-import Equipement.*;
-import Protagoniste.Monstre;
+import equipements.*;
+import protagonistes.Monstre;
 
 public class Salle {
     private Position position;
@@ -60,5 +60,19 @@ public class Salle {
      */
     public Position getPosition() {
         return position;
+    }
+
+    /**
+     * @return true si un monstre est dans la salle | false sinon
+     */
+    public boolean contientMonstre() {
+        return this.monstre != null;
+    }
+
+    /**
+     * @return true si un tresor est dans la salle | false sinon
+     */
+    public boolean contientTresor() {
+        return this.tresor != null;
     }
 }

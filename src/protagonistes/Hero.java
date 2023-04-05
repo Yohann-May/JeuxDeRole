@@ -1,6 +1,6 @@
-package Protagoniste;
+package protagonistes;
 
-import Equipement.*;
+import equipements.*;
 
 public class Hero extends Personnage {
     public Hero(String nom, int vie) {

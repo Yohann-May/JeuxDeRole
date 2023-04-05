@@ -1,4 +1,4 @@
-package Equipement;
+package equipements;
 
 public class Equipement {
     protected String nom;

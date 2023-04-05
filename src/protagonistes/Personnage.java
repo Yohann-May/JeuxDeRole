@@ -1,7 +1,7 @@
-package Protagoniste;
+package protagonistes;
 
-import Equipement.*;
-import Position.Position;
+import equipements.*;
+import labyrinthe.Position;
 
 public class Personnage {
     protected Position position;
@@ -24,8 +24,12 @@ public class Personnage {
         return vie;
     }
 
-    public void subirAttaque(int degats) {
-
+    public void subirAttaque(int degats, Personnage personnage) {
+        this.vie -= degats;
+        System.out.println(this.getNom() + " subit une violente attaque de " + personnage.getNom());
+        if (this.getVie() <= 0) {
+            mourir();
+        }
     }
 
     public Position getPosition() {
@@ -34,5 +38,13 @@ public class Personnage {
 
     public void seDeplacer(Position position) {
         this.position = position;
+    }
+
+    public boolean estMort() {
+        return this.getVie() > 0;
+    }
+
+    public void mourir() {
+        System.out.println("Le " + getNom() + " succombe à ses blessures...");
     }
 }
