@@ -3,26 +3,46 @@ package labyrinthe;
 import protagonistes.*;
 import vue.Clavier;
 
+/**
+ * TODO commenter
+ */
 public class Labyrinthe {
     private Salle[][] labyrinthe;
 
+    /**
+     * TODO commenter
+     */
     public Labyrinthe(int x, int y) {
         this.labyrinthe = new Salle[x][y];
     }
 
-    public void ajouterSalle(Salle salle) {
-        this.labyrinthe[salle.getPosition().getX()][salle.getPosition().getY()] = salle;
+    /**
+     * TODO commenter
+     */
+    public void ajouterSalle(Salle... salles) {
+        for (int i = 0; i < salles.length; i++) {
+            this.labyrinthe[salles[i].getPosition().getX()][salles[i].getPosition().getY()] = salles[i];
+        }
     }
 
+    /**
+     * TODO commenter
+     */
     public void ajouterPorte(Salle entree, Salle sortie) {
         entree.ajouterPorte(sortie);
         sortie.ajouterPorte(entree);
     }
 
-    private Salle getSalle(Position position) {
+    /**
+     * TODO commenter
+     */
+    public Salle getSalle(Position position) {
         return labyrinthe[position.getX()][position.getY()];
     }
 
+    /**
+     * TODO commenter
+     */
     public Salle deplacer(Personnage personnage, String direction) {
        Salle[] portes = getSalle(personnage.getPosition()).getPortes();
         switch (direction) {
@@ -69,20 +89,14 @@ public class Labyrinthe {
      * Combat entre un monstre et un joueur, un seul tour
      * @param hero joueur
      * @param monstre monstre
-     * @return true si le hero fuit | false sinon
+     * @return true si le hero fuit | false si le combat se fini par la mort d'un des protagonistes
      */
     public boolean combattre(Hero hero, Monstre monstre) {
         int alea;
         boolean fuir;
         int choix;
         do {
-            alea = (int) (Math.random() * 100);
-            if (alea > 50) {
-                hero.subirAttaque(1, monstre);
-            } else {
-                monstre.subirAttaque(1, hero);
-            }
-            // Fuir ou continuer
+            /* Le hero choisit de fuir ou combattre */
             do {
                 System.out.println("Que voulez vous faire ?");
                 System.out.println("1 - Fuir le combat");
@@ -90,8 +104,17 @@ public class Labyrinthe {
                 System.out.print("Entrez un nombre : ");
                 choix = Clavier.entrerClavierInt();
             } while (choix < 1 || choix > 2);
-            fuir = choix == 1;
+            fuir = choix == 1; // true si le hero decide de fuir
+            if (!fuir) {
+                /* Degats aleatoires */
+                alea = (int) (Math.random() * 100);
+                if (alea > 50) {
+                    hero.subirAttaque(1, monstre); // Le hero subit des degats
+                } else {
+                    monstre.subirAttaque(1, hero); // Le monstre subit des degats
+                }
+            }
         } while ((hero.estMort() && monstre.estMort()) && !fuir);
-        return fuir;
+        return fuir; // renvoie la decision du hero s'il fuit
     }
 }

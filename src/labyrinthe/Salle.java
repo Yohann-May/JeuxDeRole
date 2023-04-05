@@ -3,11 +3,12 @@ package labyrinthe;
 import equipements.*;
 import protagonistes.Monstre;
 
+/**
+ * TODO commenter
+ */
 public class Salle {
     private Position position;
-
     private Monstre monstre;
-
     private Equipement tresor;
     private Salle[] portes;
 
@@ -66,7 +67,7 @@ public class Salle {
      * @return true si un monstre est dans la salle | false sinon
      */
     public boolean contientMonstre() {
-        return this.monstre != null;
+        return this.monstre != null && this.monstre.getVie() != 0;
     }
 
     /**
@@ -74,5 +75,13 @@ public class Salle {
      */
     public boolean contientTresor() {
         return this.tresor != null;
+    }
+
+    public Monstre getMonstre() {
+        return this.monstre;
+    }
+
+    public Equipement getTresor() {
+        return this.tresor;
     }
 }
