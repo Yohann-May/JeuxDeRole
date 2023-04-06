@@ -56,6 +56,9 @@ public class Personnage {
     public void subirAttaque(Personnage attaquant) {
         int degats = attaquant.getArme() == null ? 1 : attaquant.getArme().getDegats();
         degats = this.armure == null ? degats : this.armure.subirDegats(degats);
+        if (this.armure != null && this.armure.estCasser()) {
+            this.armure = null;
+        }
         subirAttaque(degats);
         System.out.println(this.getNom() + " subit une violente attaque de " + attaquant.getNom());
     }

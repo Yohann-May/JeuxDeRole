@@ -31,12 +31,13 @@ public class BoundaryHistoire {
      */
     public void tourJoueur() {
         Salle enCours = this.labyrinthe.getSalle(this.hero.getPosition()); // Recuperation de la salle de depart
-        // TODO afficher les deplacement possible pour le joueur
-        // deplacement du joueur
+        // Affichage des directions possibles
+        enCours.afficherDirectionPossible();
+        // Deplacement du joueur
         Salle suivante = this.labyrinthe.deplacer(hero, selectionDirection());
         // combat automatique
         if (suivante.contientMonstre()) { // combat si la salle contient un monstre
-            System.out.println(this.hero.getNom() + " rencontre un(e) " + suivante.getMonstre().getNom());
+            System.out.print(this.hero.getNom() + " rencontre un(e) " + suivante.getMonstre().getNom() + ". ");
             if (this.labyrinthe.combattre(this.hero, suivante.getMonstre())) { // return true si fuite du hero
                 // fuite, le monstre regagne sa vie
                 suivante.getMonstre().setVie(suivante.getMonstre().getVieMax());

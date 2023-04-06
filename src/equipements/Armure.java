@@ -40,4 +40,11 @@ public class Armure extends Equipement {
         this.vie = 0;
         System.out.println(this.getNom() + " casse sous les dégats subis...");
     }
+
+    /**
+     * @return true si l'armure est casser | false sinon
+     */
+    public boolean estCasser() {
+        return this.vie == 0;
+    }
 }
