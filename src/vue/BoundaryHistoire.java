@@ -27,6 +27,13 @@ public class BoundaryHistoire {
     }
 
     /**
+     * Creation de l'histoire par maitre du jeu ou non
+     */
+    public void histoire() {
+        // TODO coder la méthode
+    }
+
+    /**
      * Realisation d'un tour pour le joueur
      */
     public void tourJoueur() {
@@ -74,5 +81,21 @@ public class BoundaryHistoire {
      */
     public void setLabyrinthe(Labyrinthe labyrinthe) {
         this.labyrinthe = labyrinthe;
+    }
+
+    /**
+     * Enregistrer dans un fichier json l'histoire
+     * @param nom nom du fichier
+     */
+    public void sauvegarder(String nom) {
+        // TODO coder la méthode
+    }
+
+    /**
+     * Charger une histoire a partir d'un nom donné
+     * @param nom nom du fichier
+     */
+    public void charger(String nom) {
+        // TODO coder la méthode
     }
 }
