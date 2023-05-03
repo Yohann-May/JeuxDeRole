@@ -6,7 +6,9 @@ import equipements.Equipement;
 import labyrinthe.Labyrinthe;
 import labyrinthe.Position;
 import labyrinthe.Salle;
+import protagonistes.Hero;
 import protagonistes.Monstre;
+import protagonistes.Personnage;
 
 import java.util.logging.XMLFormatter;
 
@@ -120,5 +122,15 @@ public class BoundaryMaitreDuJeu {
             }
         }
         return e;
+    }
+    /**
+     * @return un Hero cree par le maitre du jeu avec une vie de 10
+     */
+    private static Hero creerPersonnage() {
+        System.out.println("========================");
+        System.out.println(" Creation d'un personnage ");
+        System.out.println("========================");
+        System.out.print("Nom du personnage : ");
+        return new Hero(Clavier.entrerClavierString(), 10);
     }
 }
