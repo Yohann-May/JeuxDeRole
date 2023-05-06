@@ -5,6 +5,10 @@ package protagonistes;
  * Gere un monstre
  */
 public class Monstre extends Personnage {
+	
+	public Monstre() {
+		super();
+    }
 
     /**
      * Constructeur de la classe Monstre

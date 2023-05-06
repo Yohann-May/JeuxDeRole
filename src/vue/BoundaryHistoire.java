@@ -1,14 +1,17 @@
 package vue;
 
-import equipements.Arme;
-import equipements.Armure;
+
 import labyrinthe.Labyrinthe;
-import labyrinthe.Position;
 import labyrinthe.Salle;
 import protagonistes.Hero;
-import protagonistes.Monstre;
 
-import java.util.Objects;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+
 
 /**
  * Classe BoundaryHistoire
@@ -30,8 +33,9 @@ public class BoundaryHistoire {
      * Creation de l'histoire par maitre du jeu ou non
      */
     public void histoire() {
-        // TODO coder la méthode
-    }
+        // TODO
+        	
+        }
 
     /**
      * Realisation d'un tour pour le joueur
@@ -86,16 +90,67 @@ public class BoundaryHistoire {
     /**
      * Enregistrer dans un fichier json l'histoire
      * @param nom nom du fichier
+     * @throws FileNotFoundException 
      */
-    public void sauvegarder(String nom) {
-        // TODO coder la méthode
+    public void sauvegarder() {
+
+        // Créer un objet ObjectMapper pour convertir l'objet en JSON
+        ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);;
+
+        try {
+            // Convertir l'objet en JSON et l'enregistrer dans un fichier
+            mapper.writeValue(new File(".\\vue\\hero.json"), this.hero);
+            System.out.println("Le hero a été converti en JSON et enregistré dans le fichier hero.json");
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors la sauvegarde du hero : " + e.getMessage());
+        }
+        
+        try {
+            mapper.writeValue(new File(".\\vue\\labyrinthe.json"), this.labyrinthe);
+            System.out.println("Labyrinthe a été converti en JSON et enregistré dans le fichier Labyrinthe.json");
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors de sauvegarde de labyrinthe : " + e.getMessage());
+        }
+        
+        
+        
     }
 
-    /**
+    public Hero getHero() {
+		return hero;
+	}
+
+	public Labyrinthe getLabyrinthe() {
+		return labyrinthe;
+	}
+
+	/**
      * Charger une histoire a partir d'un nom donné
      * @param nom nom du fichier
      */
-    public void charger(String nom) {
-        // TODO coder la méthode
+    public void charger() {
+    	// Créer un objet ObjectMapper pour convertir l'objet en JSON
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+        	File fileHero = new File(".\\vue\\hero.json"); 
+        	Hero heroRecuperer = mapper.readValue(fileHero, Hero.class);
+        	this.hero=heroRecuperer;
+            System.out.println("Le Hero a bien été chargé");
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+        }
+        
+        try {
+        	File fileLab = new File(".\\vue\\labyrinthe.json");
+        	Labyrinthe labyrintheRecuperer = mapper.readValue(fileLab, Labyrinthe.class);
+        	this.setLabyrinthe(labyrintheRecuperer);
+            System.out.println("La labyrinthe a bien été chargé");
+        } catch (IOException e) {
+            System.out.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+        }
+        
     }
+    
+   
+       
 }

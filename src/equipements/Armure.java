@@ -6,6 +6,11 @@ package equipements;
  */
 public class Armure extends Equipement {
     private int vie;
+    
+    
+    public Armure() {
+    	super();
+    }
 
     /**
      * Constructeur de la classe Armure
@@ -47,4 +52,18 @@ public class Armure extends Equipement {
     public boolean estCasser() {
         return this.vie == 0;
     }
+    
+    /**
+     * @return nom de l'armure et sa vie
+     */
+    @Override
+    public String toString() {
+    	return super.toString() + this.vie;
+    }
+    
+    
+    
+    
+    
+    
 }

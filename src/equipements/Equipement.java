@@ -6,6 +6,10 @@ package equipements;
  */
 public class Equipement {
     protected String nom;
+    
+    
+    public Equipement() {
+    }
 
     /**
      * Constructeur de la classe Equipement
@@ -21,4 +25,8 @@ public class Equipement {
     public String getNom() {
         return this.nom;
     }
+    
+    /**
+     * @return nom de l'équipement
+     */
 }

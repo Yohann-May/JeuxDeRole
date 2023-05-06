@@ -1,5 +1,7 @@
 package labyrinthe;
 
+
+
 import equipements.*;
 import protagonistes.Monstre;
 
@@ -9,10 +11,15 @@ import protagonistes.Monstre;
  * Peut contenir des monstres et/ou des tresors
  */
 public class Salle {
-    private Position position;
+
+	private Position position;
     private Monstre monstre;
     private Equipement tresor;
     private Salle[] portes;
+    
+    
+    public Salle() {
+    }
 
     /**
      * Une salle compose un labyrinthe et un joueur peut effectuer des actions :

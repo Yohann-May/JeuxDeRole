@@ -1,5 +1,7 @@
 package labyrinthe;
 
+
+
 import protagonistes.*;
 import vue.Clavier;
 
@@ -9,8 +11,18 @@ import vue.Clavier;
  */
 public class Labyrinthe {
     private Salle[][] labyrinthe;
+    
+    
+    public Salle[][] getLabyrinthe(){
+    	return this.labyrinthe;
+    }
 
-    /**
+    
+    
+    public Labyrinthe() {
+    }
+
+	/**
      * Constructeur de la classe Labyrinthe
      * @param x le nombre de ligne dans le tableau
      * @param y le nombre de colonne dans le tableau
@@ -24,6 +36,7 @@ public class Labyrinthe {
      * @param salles salle(s) a ajouter
      */
     public void ajouterSalle(Salle... salles) {
+    	System.out.println("length of salles : " + salles.length);
         for (int i = 0; i < salles.length; i++) {
             this.labyrinthe[salles[i].getPosition().getX()][salles[i].getPosition().getY()] = salles[i];
         }

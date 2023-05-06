@@ -1,0 +1,9 @@
+{
+  "position" : {
+    "x" : 0,
+    "y" : 0
+  },
+  "nom" : "hero",
+  "vieMax" : 10,
+  "vie" : 10
+}

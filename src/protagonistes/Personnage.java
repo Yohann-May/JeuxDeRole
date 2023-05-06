@@ -15,6 +15,9 @@ public class Personnage {
     protected int vieActuelle;
     protected Arme arme;
     protected Armure armure;
+    
+    public Personnage() {
+    }
 
     /**
      * Constructeur de la classe Personnage
@@ -162,4 +165,7 @@ public class Personnage {
     public void setVieMax(int i) {
         this.vieMax = i;
     }
+    
+    
+    
 }

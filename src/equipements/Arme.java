@@ -6,6 +6,11 @@ package equipements;
  */
 public class Arme extends Equipement {
     private int degats;
+    
+    
+    public Arme() {
+    	super();
+    }
 
     /**
      * Constructeur de la classe Arme
@@ -23,4 +28,6 @@ public class Arme extends Equipement {
     public int getDegats() {
         return this.degats;
     }
+    
+   
 }

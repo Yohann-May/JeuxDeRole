@@ -7,6 +7,10 @@ package labyrinthe;
 public class Position {
     private int x;
     private int y;
+    
+    
+    public Position() {
+    }
 
     /**
      * Constructeur de la classe Position
@@ -25,10 +29,19 @@ public class Position {
         return x;
     }
 
-    /**
+    public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	/**
      * @return la position sur la colonne du labyrinthe
      */
     public int getY() {
         return y;
     }
+    
 }

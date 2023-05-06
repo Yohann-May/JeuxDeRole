@@ -8,9 +8,6 @@ import labyrinthe.Position;
 import labyrinthe.Salle;
 import protagonistes.Hero;
 import protagonistes.Monstre;
-import protagonistes.Personnage;
-
-import java.util.logging.XMLFormatter;
 
 public class BoundaryMaitreDuJeu {
     public static Labyrinthe creerLabyrinthe() {
