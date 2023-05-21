@@ -33,7 +33,41 @@ public class BoundaryHistoire {
      * Creation de l'histoire par maitre du jeu ou non
      */
     public void histoire() {
-        // TODO
+    	 System.out.println("========================");
+    	System.out.println("Veuillez choisir 1 ou 2:\n "
+    			+ "========================"
+    			+ "1-Charger l'ancienne Partie"
+    			+ "2-Commencer une nouvelle partie\n "
+    			+ "========================");
+    	int choix = Clavier.entrerClavierInt();
+    	while (choix != 1 || choix != 2 ) {
+    		System.out.println("Veuillez séléctionner entre 1 et 2");
+    		this.histoire();
+    	}
+    	
+    	if(choix == 1) {
+    		this.charger();
+    	}
+    	else {
+    		System.out.println("Veuillez choisir 1 ou 2:\n"
+    				+ "================================== "
+        			+ "1-Jouer avec une labyrinthe auto\n"
+        			+ "2-Créer une labyrinthe\n"
+        			+ "==================================");
+    		int choixLabyrinthe = Clavier.entrerClavierInt();
+    		switch (choixLabyrinthe){
+    			case 1:
+    				this.labyrinthe =  BoundaryCreerLabyrinthe.labyrintheStarter();
+    				break;
+    				
+    			case 2:
+    				this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
+    				break;
+    		}
+    	}
+    	
+    	this.sauvegarder();
+    	
         	
         }
 

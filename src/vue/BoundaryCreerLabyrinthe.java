@@ -17,8 +17,7 @@ public class BoundaryCreerLabyrinthe {
      * @return le labyrinthe cree
      */
     public static Labyrinthe creerLabyrinthe() {
-        // TODO creation labyrinthe par maitre du jeu
-        return null;
+    	return BoundaryMaitreDuJeu.creerLabyrinthe();
     }
 
     /**
