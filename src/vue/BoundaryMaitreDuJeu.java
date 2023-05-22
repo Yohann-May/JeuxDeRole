@@ -122,7 +122,7 @@ public class BoundaryMaitreDuJeu {
     /**
      * @return un Hero cree par le maitre du jeu avec une vie de 10
      */
-    private static Hero creerPersonnage() {
+    public static Hero creerPersonnage() {
         System.out.println("========================");
         System.out.println(" Creation d'un personnage ");
         System.out.println("========================");
