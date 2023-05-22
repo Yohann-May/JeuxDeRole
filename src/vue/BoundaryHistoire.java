@@ -28,7 +28,10 @@ public class BoundaryHistoire {
         this.hero = hero;
     }
 
+    public BoundaryHistoire() {}
+
     public void histoire() {
+        choixPartie();
         // TODO coder la méthode suivante
         // Commencer par choisir la partie en appelant choixPartie()
         // Une fois le labyrinthe chargé réaliser le tour d'un joueur jusqu'à la fin
@@ -129,27 +132,21 @@ public class BoundaryHistoire {
      * Enregistrer dans un fichier json l'histoire
      */
     public void sauvegarder() {
-
         // Créer un objet ObjectMapper pour convertir l'objet en JSON
         ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-
         try {
             // Convertir l'objet en JSON et l'enregistrer dans un fichier
-            mapper.writeValue(new File(".\\vue\\hero.json"), this.hero);
+            mapper.writeValue(new File("hero.json"), this.hero);
             System.out.println("Le hero a été converti en JSON et enregistré dans le fichier hero.json");
         } catch (IOException e) {
-            System.out.println("Une erreur s'est produite lors la sauvegarde du hero : " + e.getMessage());
+            System.err.println("Une erreur s'est produite lors la sauvegarde du hero : " + e.getMessage());
         }
-        
         try {
-            mapper.writeValue(new File(".\\vue\\labyrinthe.json"), this.labyrinthe);
-            System.out.println("Labyrinthe a été converti en JSON et enregistré dans le fichier Labyrinthe.json");
+            mapper.writeValue(new File("labyrinthe.json"), this.labyrinthe);
+            System.out.println("Labyrinthe a été converti en JSON et enregistré dans le fichier labyrinthe.json");
         } catch (IOException e) {
-            System.out.println("Une erreur s'est produite lors de sauvegarde de labyrinthe : " + e.getMessage());
+            System.err.println("Une erreur s'est produite lors de sauvegarde de labyrinthe : " + e.getMessage());
         }
-        
-        
-        
     }
 
     public Hero getHero() {
@@ -184,7 +181,8 @@ public class BoundaryHistoire {
         }
         
     }
-    
-   
-       
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
 }
