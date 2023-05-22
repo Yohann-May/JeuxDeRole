@@ -15,7 +15,7 @@ public class Salle {
 	private Position position;
     private Monstre monstre;
     private Equipement tresor;
-    private Salle[] portes;
+    private Position[] portes;
     
     
     public Salle() {
@@ -35,7 +35,7 @@ public class Salle {
         this.position = position;
         this.monstre = monstre;
         this.tresor = tresor;
-        this.portes = new Salle[4];
+        this.portes = new Position[4];
     }
 
     /**
@@ -48,20 +48,20 @@ public class Salle {
         int sx = salle.getPosition().getX();
         int sy = salle.getPosition().getY();
         if (sx == this.getPosition().getX() - 1 && sy == this.getPosition().getY()) { // Nord
-            this.portes[0] = salle;
+            this.portes[0] = salle.getPosition();
         } else if (sx == this.getPosition().getX() + 1 && sy == this.getPosition().getY()) { // Sud
-            this.portes[1] = salle;
+            this.portes[1] = salle.getPosition();
         } else if (sx == this.getPosition().getX() && sy == this.getPosition().getY() - 1) { // Ouest
-            this.portes[2] = salle;
+            this.portes[2] = salle.getPosition();
         } else if (sx == this.getPosition().getX() && sy == this.getPosition().getY() + 1) { // Est
-            this.portes[3] = salle;
+            this.portes[3] = salle.getPosition();
         }
     }
 
     /**
      * @return la liste des portes de la salle
      */
-    public Salle[] getPortes() {
+    public Position[] getPortes() {
         return portes;
     }
 
@@ -124,21 +124,13 @@ public class Salle {
         for (int i = 0; i < this.getPortes().length; i++) {
             if (this.portes[i] != null) {
                 switch (i) {
-                    case 0 -> {
-                        System.out.print("Nord ");
-                    }
-                    case 1 -> {
-                        System.out.print("Sud ");
-                    }
-                    case 2 -> {
-                        System.out.print("Ouest ");
-                    }
-                    case 3 -> {
-                        System.out.print("Est ");
-                    }
+                    case 0 -> System.out.print("Nord ");
+                    case 1 -> System.out.print("Sud ");
+                    case 2 -> System.out.print("Ouest ");
+                    case 3 -> System.out.print("Est ");
                 }
             }
         }
-        System.out.println("");
+        System.out.println();
     }
 }
