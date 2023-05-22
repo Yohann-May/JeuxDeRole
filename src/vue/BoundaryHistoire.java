@@ -106,6 +106,7 @@ public class BoundaryHistoire {
                 }
             }
         }
+        hero.seDeplacer(suivante.getPosition());
     }
 
     /**
