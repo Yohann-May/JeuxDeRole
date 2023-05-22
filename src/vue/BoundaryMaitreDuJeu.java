@@ -11,7 +11,7 @@ import protagonistes.Monstre;
 
 public class BoundaryMaitreDuJeu {
     public static Labyrinthe creerLabyrinthe() {
-        boolean fin = false;
+        boolean fin;
         int x, y;
         Labyrinthe l;
         Salle entree, sortie;
@@ -69,7 +69,6 @@ public class BoundaryMaitreDuJeu {
             if (x > xMax || y > yMax)
                 System.out.println("La position doit etre comprise dans la taille du labyrinthe (X=" + xMax + " Y=" + yMax);
         } while (x < xMax && y < yMax);
-        // TODO redemander position si salle existe deja a cette position
         System.out.print("Voulez-vous creer un Monstre dans cette salle (Oui (1) - Non (2)) ? ");
         if (Clavier.entrerClavierInt() == 1)
             m = BoundaryMaitreDuJeu.creerMonstre();
@@ -108,14 +107,14 @@ public class BoundaryMaitreDuJeu {
                 nom = Clavier.entrerClavierString();
                 System.out.print("Degats de l'arme : ");
                 d = Clavier.entrerClavierInt();
-                e = (Equipement) new Arme(nom, d);
+                e = new Arme(nom, d);
             }
             case 2 -> {
                 System.out.print("Nom de l'armure : ");
                 nom = Clavier.entrerClavierString();
                 System.out.print("Vie de l'armure : ");
                 d = Clavier.entrerClavierInt();
-                e = (Equipement) new Armure(nom, d);
+                e = new Armure(nom, d);
             }
         }
         return e;

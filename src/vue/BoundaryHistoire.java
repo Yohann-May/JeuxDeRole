@@ -6,7 +6,6 @@ import labyrinthe.Salle;
 import protagonistes.Hero;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -29,47 +28,52 @@ public class BoundaryHistoire {
         this.hero = hero;
     }
 
-    /**
-     * Creation de l'histoire par maitre du jeu ou non
-     */
     public void histoire() {
-    	 System.out.println("========================");
-    	System.out.println("Veuillez choisir 1 ou 2:\n "
-    			+ "========================"
-    			+ "1-Charger l'ancienne Partie"
-    			+ "2-Commencer une nouvelle partie\n "
-    			+ "========================");
-    	int choix = Clavier.entrerClavierInt();
-    	while (choix != 1 || choix != 2 ) {
-    		System.out.println("Veuillez séléctionner entre 1 et 2");
-    		this.histoire();
-    	}
-    	
-    	if(choix == 1) {
-    		this.charger();
-    	}
-    	else {
-    		System.out.println("Veuillez choisir 1 ou 2:\n"
-    				+ "================================== "
-        			+ "1-Jouer avec une labyrinthe auto\n"
-        			+ "2-Créer une labyrinthe\n"
-        			+ "==================================");
-    		int choixLabyrinthe = Clavier.entrerClavierInt();
-    		switch (choixLabyrinthe){
-    			case 1:
-    				this.labyrinthe =  BoundaryCreerLabyrinthe.labyrintheStarter();
-    				break;
-    				
-    			case 2:
-    				this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
-    				break;
-    		}
-    	}
-    	
-    	this.sauvegarder();
-    	
-        	
+        // TODO coder la méthode suivante
+        // Commencer par choisir la partie en appelant choixPartie()
+        // Une fois le labyrinthe chargé réaliser le tour d'un joueur jusqu'à la fin
+        // Enregistrer si fin
+    }
+
+    /**
+     * Choix du mode de jeux parmi : <br>
+     *     - Charger une ancienne partie <br>
+     *     - Commencer une nouvelle partie : <br>
+     *         + Génération automatique <br>
+     *         + Création du labyrinthe <br>
+     */
+    public void choixPartie() {
+        int choix, choix2;
+        do {
+            System.out.print(
+                    """
+                            =================================
+                            1 - Charger l'ancienne Partie
+                            2 - Commencer une nouvelle partie
+                            =================================
+                            Faites votre choix :\s""");
+            choix = Clavier.entrerClavierInt();
+        } while (choix != 1 && choix != 2);
+        switch (choix) {
+            case 1 -> this.charger();
+            case 2 -> {
+                do {
+                    System.out.print(
+                            """
+                                    ========================================
+                                    1 - Jouer avec un labyrinthe automatique
+                                    2 - Créer votre labyrinthe
+                                    ========================================
+                                    Faites votre choix :\s""");
+                    choix2 = Clavier.entrerClavierInt();
+                } while (choix2 != 1 && choix2 != 2);
+                switch (choix2) {
+                    case 1 -> this.labyrinthe = BoundaryCreerLabyrinthe.labyrintheStarter();
+                    case 2 -> this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
+                }
+            }
         }
+    }
 
     /**
      * Realisation d'un tour pour le joueur
@@ -123,13 +127,11 @@ public class BoundaryHistoire {
 
     /**
      * Enregistrer dans un fichier json l'histoire
-     * @param nom nom du fichier
-     * @throws FileNotFoundException 
      */
     public void sauvegarder() {
 
         // Créer un objet ObjectMapper pour convertir l'objet en JSON
-        ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);;
+        ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
 
         try {
             // Convertir l'objet en JSON et l'enregistrer dans un fichier
@@ -160,15 +162,13 @@ public class BoundaryHistoire {
 
 	/**
      * Charger une histoire a partir d'un nom donné
-     * @param nom nom du fichier
      */
     public void charger() {
     	// Créer un objet ObjectMapper pour convertir l'objet en JSON
         ObjectMapper mapper = new ObjectMapper();
         try {
-        	File fileHero = new File(".\\vue\\hero.json"); 
-        	Hero heroRecuperer = mapper.readValue(fileHero, Hero.class);
-        	this.hero=heroRecuperer;
+        	File fileHero = new File(".\\vue\\hero.json");
+            this.hero= mapper.readValue(fileHero, Hero.class);
             System.out.println("Le Hero a bien été chargé");
         } catch (IOException e) {
             System.out.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
