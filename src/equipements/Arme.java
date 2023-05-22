@@ -6,8 +6,7 @@ package equipements;
  */
 public class Arme extends Equipement {
     private int degats;
-    
-    
+
     public Arme() {
     	super();
     }

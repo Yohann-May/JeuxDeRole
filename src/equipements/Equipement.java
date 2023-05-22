@@ -25,8 +25,4 @@ public class Equipement {
     public String getNom() {
         return this.nom;
     }
-    
-    /**
-     * @return nom de l'équipement
-     */
 }

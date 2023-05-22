@@ -8,7 +8,7 @@ import java.util.Scanner;
  * Permet de saisir au clavier dans le jeu
  */
 public class Clavier {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     /**
      * @return entier saisit au clavier
