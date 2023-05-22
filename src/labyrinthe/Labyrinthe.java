@@ -132,7 +132,7 @@ public class Labyrinthe {
                     monstre.subirAttaque(hero); // Le monstre subit des degats
                 }
             }
-        } while ((hero.estMort() && monstre.estMort()) && !fuir);
+        } while ((!hero.estMort() && !monstre.estMort()) && !fuir);
         return fuir; // renvoie la decision du hero s'il fuit
     }
 }
