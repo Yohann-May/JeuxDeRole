@@ -31,11 +31,14 @@ public class BoundaryHistoire {
     public BoundaryHistoire() {}
 
     public void histoire() {
+        boolean save;
         choixPartie();
-        // TODO coder la méthode suivante
-        // Commencer par choisir la partie en appelant choixPartie()
-        // Une fois le labyrinthe chargé réaliser le tour d'un joueur jusqu'à la fin
-        // Enregistrer si fin
+        do {
+            save = tourJoueur();
+        } while (!hero.estMort() && !save);
+        if (save) {
+            sauvegarder();
+        }
     }
 
     /**
@@ -46,7 +49,7 @@ public class BoundaryHistoire {
      *         + Création du labyrinthe <br>
      */
     public void choixPartie() {
-        int choix, choix2;
+        int choix;
         do {
             System.out.print(
                     """
@@ -61,70 +64,84 @@ public class BoundaryHistoire {
             case 1 -> {
                 if (!this.charger()) {
                     System.out.println("Aucune sauvegarde n'a pu être trouver.");
-                    do {
-                        System.out.print(
-                                """
-                                        ========================================
-                                        1 - Jouer avec un labyrinthe automatique
-                                        2 - Créer votre labyrinthe
-                                        ========================================
-                                        Faites votre choix :\s""");
-                        choix2 = Clavier.entrerClavierInt();
-                    } while (choix2 != 1 && choix2 != 2);
-                    switch (choix2) {
-                        case 1 -> this.labyrinthe = BoundaryCreerLabyrinthe.labyrintheStarter();
-                        case 2 -> this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
-                    }
+                    this.choixLabyrinthe();
+                    this.hero = BoundaryMaitreDuJeu.creerPersonnage();
                 }
             }
             case 2 -> {
-                do {
-                    System.out.print(
-                            """
-                                    ========================================
-                                    1 - Jouer avec un labyrinthe automatique
-                                    2 - Créer votre labyrinthe
-                                    ========================================
-                                    Faites votre choix :\s""");
-                    choix2 = Clavier.entrerClavierInt();
-                } while (choix2 != 1 && choix2 != 2);
-                switch (choix2) {
-                    case 1 -> this.labyrinthe = BoundaryCreerLabyrinthe.labyrintheStarter();
-                    case 2 -> this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
-                }
+                this.choixLabyrinthe();
+                this.hero = BoundaryMaitreDuJeu.creerPersonnage();
             }
+        }
+    }
+
+    private void choixLabyrinthe() {
+        int choix;
+        do {
+            System.out.print(
+                    """
+                            ========================================
+                            1 - Jouer avec un labyrinthe automatique
+                            2 - Créer votre labyrinthe
+                            ========================================
+                            Faites votre choix :\s""");
+            choix = Clavier.entrerClavierInt();
+        } while (choix != 1 && choix != 2);
+        switch (choix) {
+            case 1 -> this.labyrinthe = BoundaryCreerLabyrinthe.labyrintheStarter();
+            case 2 -> this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
         }
     }
 
     /**
      * Realisation d'un tour pour le joueur
      */
-    public void tourJoueur() {
-        Salle enCours = this.labyrinthe.getSalle(this.hero.getPosition()); // Recuperation de la salle de depart
-        // Affichage des directions possibles
-        enCours.afficherDirectionPossible();
-        // Deplacement du joueur
-        Salle suivante = this.labyrinthe.deplacer(hero, selectionDirection());
-        // combat automatique
-        if (suivante.contientMonstre()) { // combat si la salle contient un monstre
-            System.out.print(this.hero.getNom() + " rencontre un(e) " + suivante.getMonstre().getNom() + ". ");
-            if (this.labyrinthe.combattre(this.hero, suivante.getMonstre())) { // return true si fuite du hero
-                // fuite, le monstre regagne sa vie
-                suivante.getMonstre().setVie(suivante.getMonstre().getVieMax());
-                System.out.println(this.hero.getNom() + " prend la fuite !");
-                suivante = enCours;
-            } else {
-                // recuperation tresor (si present) car monstre vaincu
-                this.hero.setVieMax(this.hero.getVieMax() + 1); // Augmentation de la vie max d'1pv
-                this.hero.setVie(this.hero.getVieMax()); // Regeneration du hero
-                enCours = suivante;
-                if (enCours.contientTresor()) {
-                    System.out.println(this.hero.getNom() + " trouve un(e) " + enCours.getTresor().getNom());
-                    this.hero.recupererEquipement(enCours.getTresor());
+    public boolean tourJoueur() {
+        boolean sauvegarder = false;
+        int choix;
+        do {
+            System.out.print(
+                    """
+                            =================================
+                            1 - Se déplacer
+                            2 - Sauvegarder et arrêter
+                            =================================
+                            Que voulez vous faire ? \s""");
+            choix = Clavier.entrerClavierInt();
+        } while (choix != 1 && choix != 2);
+        switch (choix) {
+            case 1 -> {
+                Salle enCours = this.labyrinthe.getSalle(this.hero.getPosition()); // Recuperation de la salle de depart
+                // Affichage des directions possibles
+                enCours.afficherDirectionPossible();
+                // Deplacement du joueur
+                Salle suivante = this.labyrinthe.deplacer(hero, selectionDirection());
+                // combat automatique
+                if (suivante.contientMonstre()) { // combat si la salle contient un monstre
+                    System.out.print(this.hero.getNom() + " rencontre un(e) " + suivante.getMonstre().getNom() + ". ");
+                    if (this.labyrinthe.combattre(this.hero, suivante.getMonstre())) { // return true si fuite du hero
+                        // fuite, le monstre regagne sa vie
+                        suivante.getMonstre().setVie(suivante.getMonstre().getVieMax());
+                        System.out.println(this.hero.getNom() + " prend la fuite !");
+                        suivante = enCours;
+                    } else {
+                        // recuperation tresor (si present) car monstre vaincu
+                        this.hero.setVieMax(this.hero.getVieMax() + 1); // Augmentation de la vie max d'1pv
+                        this.hero.setVie(this.hero.getVieMax()); // Regeneration du hero
+                        enCours = suivante;
+                        if (enCours.contientTresor()) {
+                            System.out.println(this.hero.getNom() + " trouve un(e) " + enCours.getTresor().getNom());
+                            this.hero.recupererEquipement(enCours.getTresor());
+                        }
+                    }
                 }
+                hero.seDeplacer(suivante.getPosition());
+            }
+            case 2 -> {
+                sauvegarder = true;
             }
         }
-        hero.seDeplacer(suivante.getPosition());
+        return sauvegarder;
     }
 
     /**
