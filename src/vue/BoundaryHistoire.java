@@ -58,7 +58,25 @@ public class BoundaryHistoire {
             choix = Clavier.entrerClavierInt();
         } while (choix != 1 && choix != 2);
         switch (choix) {
-            case 1 -> this.charger();
+            case 1 -> {
+                if (!this.charger()) {
+                    System.out.println("Aucune sauvegarde n'a pu être trouver.");
+                    do {
+                        System.out.print(
+                                """
+                                        ========================================
+                                        1 - Jouer avec un labyrinthe automatique
+                                        2 - Créer votre labyrinthe
+                                        ========================================
+                                        Faites votre choix :\s""");
+                        choix2 = Clavier.entrerClavierInt();
+                    } while (choix2 != 1 && choix2 != 2);
+                    switch (choix2) {
+                        case 1 -> this.labyrinthe = BoundaryCreerLabyrinthe.labyrintheStarter();
+                        case 2 -> this.labyrinthe = BoundaryCreerLabyrinthe.creerLabyrinthe();
+                    }
+                }
+            }
             case 2 -> {
                 do {
                     System.out.print(
@@ -131,8 +149,9 @@ public class BoundaryHistoire {
 
     /**
      * Enregistrer dans un fichier json l'histoire
+     * @return true si la sauvegarde a été effectuee correctement
      */
-    public void sauvegarder() {
+    public boolean sauvegarder() {
         // Créer un objet ObjectMapper pour convertir l'objet en JSON
         ObjectMapper mapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         try {
@@ -140,14 +159,17 @@ public class BoundaryHistoire {
             mapper.writeValue(new File("hero.json"), this.hero);
             System.out.println("Le hero a été converti en JSON et enregistré dans le fichier hero.json");
         } catch (IOException e) {
-            System.err.println("Une erreur s'est produite lors la sauvegarde du hero : " + e.getMessage());
+//            System.err.println("Une erreur s'est produite lors la sauvegarde du hero : " + e.getMessage());
+            return false;
         }
         try {
             mapper.writeValue(new File("labyrinthe.json"), this.labyrinthe);
             System.out.println("Labyrinthe a été converti en JSON et enregistré dans le fichier labyrinthe.json");
         } catch (IOException e) {
-            System.err.println("Une erreur s'est produite lors de sauvegarde de labyrinthe : " + e.getMessage());
+//            System.err.println("Une erreur s'est produite lors de sauvegarde de labyrinthe : " + e.getMessage());
+            return false;
         }
+        return true;
     }
 
     public Hero getHero() {
@@ -160,27 +182,29 @@ public class BoundaryHistoire {
 
 	/**
      * Charger une histoire a partir d'un nom donné
+     * @return true si le chargement a ete effectue correctement
      */
-    public void charger() {
+    public boolean charger() {
     	// Créer un objet ObjectMapper pour convertir l'objet en JSON
         ObjectMapper mapper = new ObjectMapper();
         try {
-        	File fileHero = new File(".\\vue\\hero.json");
+        	File fileHero = new File("hero.json");
             this.hero= mapper.readValue(fileHero, Hero.class);
             System.out.println("Le Hero a bien été chargé");
         } catch (IOException e) {
-            System.out.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+//            System.err.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+            return false;
         }
-        
         try {
-        	File fileLab = new File(".\\vue\\labyrinthe.json");
+        	File fileLab = new File("labyrinthe.json");
         	Labyrinthe labyrintheRecuperer = mapper.readValue(fileLab, Labyrinthe.class);
         	this.setLabyrinthe(labyrintheRecuperer);
             System.out.println("La labyrinthe a bien été chargé");
         } catch (IOException e) {
-            System.out.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+//            System.err.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+            return false;
         }
-        
+        return true;
     }
 
     public void setHero(Hero hero) {
