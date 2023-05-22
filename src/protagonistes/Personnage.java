@@ -103,7 +103,7 @@ public class Personnage {
      * @return true si le personnage est mort | false sinon
      */
     public boolean estMort() {
-        return this.getVie() > 0;
+        return this.getVie() <= 0;
     }
 
     /**
