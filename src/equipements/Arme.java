@@ -5,8 +5,6 @@ package equipements;
  * Permet de gerer une arme d'un joueur
  */
 public class Arme extends Equipement {
-    private int degats;
-
     public Arme() {
     	super();
     }

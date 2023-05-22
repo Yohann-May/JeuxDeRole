@@ -37,7 +37,9 @@ public class BoundaryHistoire {
             save = tourJoueur();
         } while (!hero.estMort() && !save);
         if (save) {
-            sauvegarder();
+            if (!sauvegarder()) {
+                System.out.println("Une erreur est survenue lors de la sauvegarde.");
+            }
         }
     }
 
@@ -63,7 +65,7 @@ public class BoundaryHistoire {
         switch (choix) {
             case 1 -> {
                 if (!this.charger()) {
-                    System.out.println("Aucune sauvegarde n'a pu être trouver.");
+                    System.out.println("Aucune sauvegarde n'a pu être trouvé.");
                     this.choixLabyrinthe();
                     this.hero = BoundaryMaitreDuJeu.creerPersonnage();
                 }
@@ -209,7 +211,7 @@ public class BoundaryHistoire {
             this.hero= mapper.readValue(fileHero, Hero.class);
             System.out.println("Le Hero a bien été chargé");
         } catch (IOException e) {
-//            System.err.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+            System.err.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
             return false;
         }
         try {
@@ -217,8 +219,8 @@ public class BoundaryHistoire {
         	Labyrinthe labyrintheRecuperer = mapper.readValue(fileLab, Labyrinthe.class);
         	this.setLabyrinthe(labyrintheRecuperer);
             System.out.println("La labyrinthe a bien été chargé");
-        } catch (IOException e) {
-//            System.err.println("Une erreur s'est produite lors de chargement du hero : " + e.getMessage());
+        } catch (IOException e) { // TODO error when tresor is loaded in a cell
+            System.err.println("Une erreur s'est produite lors de chargement du labyrinthe : " + e.getMessage());
             return false;
         }
         return true;

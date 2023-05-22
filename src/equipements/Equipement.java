@@ -6,6 +6,8 @@ package equipements;
  */
 public class Equipement {
     protected String nom;
+    protected int vie;
+    protected int degats;
     
     
     public Equipement() {

@@ -5,9 +5,6 @@ package equipements;
  * Permet de gerer l'armure d'un joueur
  */
 public class Armure extends Equipement {
-    private int vie;
-    
-    
     public Armure() {
     	super();
     }
