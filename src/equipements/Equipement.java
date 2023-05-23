@@ -27,4 +27,24 @@ public class Equipement {
     public String getNom() {
         return this.nom;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getVie() {
+        return vie;
+    }
+
+    public void setVie(int vie) {
+        this.vie = vie;
+    }
+
+    public int getDegats() {
+        return degats;
+    }
+
+    public void setDegats(int degats) {
+        this.degats = degats;
+    }
 }

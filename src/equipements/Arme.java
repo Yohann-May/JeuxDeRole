@@ -5,6 +5,7 @@ package equipements;
  * Permet de gerer une arme d'un joueur
  */
 public class Arme extends Equipement {
+
     public Arme() {
     	super();
     }
@@ -18,13 +19,4 @@ public class Arme extends Equipement {
         super(nom);
         this.degats = degats;
     }
-
-    /**
-     * @return les degats de l'arme
-     */
-    public int getDegats() {
-        return this.degats;
-    }
-    
-   
 }

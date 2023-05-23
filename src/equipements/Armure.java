@@ -57,10 +57,4 @@ public class Armure extends Equipement {
     public String toString() {
     	return super.toString() + this.vie;
     }
-    
-    
-    
-    
-    
-    
 }
