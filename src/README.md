@@ -9,3 +9,9 @@ Dans la fenêtre de configuration des Build Path, sélectionnez l'onglet "Librar
 Cliquez sur le bouton "Add External JARs" pour ajouter le fichier JAR de la bibliothèque Jackson que vous avez téléchargé précédemment.
 
 Sélectionnez le fichier JAR de Jackson et cliquez sur "OK" pour l'ajouter à votre Build Path.
+
+## Projet github :
+https://github.com/Yohann-May/JeuxDeRole
+
+## Membres
+BARHOUCH Mustapha, MAY Yohann, MAHJOUB Mourad
