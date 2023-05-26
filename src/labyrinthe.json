@@ -1,0 +1,315 @@
+{
+  "labyrinthe" : [ [ {
+    "position" : {
+      "x" : 0,
+      "y" : 0
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ null, {
+      "x" : 1,
+      "y" : 0
+    }, null, null ]
+  }, null, {
+    "position" : {
+      "x" : 0,
+      "y" : 2
+    },
+    "monstre" : {
+      "position" : {
+        "x" : 0,
+        "y" : 0
+      },
+      "nom" : "Gobelin",
+      "vieMax" : 5,
+      "vie" : -1
+    },
+    "tresor" : {
+      "nom" : "Armure de cuir",
+      "vie" : 5,
+      "degats" : 0
+    },
+    "portes" : [ null, null, null, {
+      "x" : 0,
+      "y" : 3
+    } ]
+  }, {
+    "position" : {
+      "x" : 0,
+      "y" : 3
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ null, null, {
+      "x" : 0,
+      "y" : 2
+    }, {
+      "x" : 0,
+      "y" : 4
+    } ]
+  }, {
+    "position" : {
+      "x" : 0,
+      "y" : 4
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ null, {
+      "x" : 1,
+      "y" : 4
+    }, {
+      "x" : 0,
+      "y" : 3
+    }, null ]
+  }, null ], [ {
+    "position" : {
+      "x" : 1,
+      "y" : 0
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 0,
+      "y" : 0
+    }, null, null, {
+      "x" : 1,
+      "y" : 1
+    } ]
+  }, {
+    "position" : {
+      "x" : 1,
+      "y" : 1
+    },
+    "monstre" : {
+      "position" : {
+        "x" : 0,
+        "y" : 0
+      },
+      "nom" : "Gobelin",
+      "vieMax" : 5,
+      "vie" : 0
+    },
+    "tresor" : null,
+    "portes" : [ null, {
+      "x" : 2,
+      "y" : 1
+    }, {
+      "x" : 1,
+      "y" : 0
+    }, null ]
+  }, null, null, {
+    "position" : {
+      "x" : 1,
+      "y" : 4
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 0,
+      "y" : 4
+    }, {
+      "x" : 2,
+      "y" : 4
+    }, null, null ]
+  }, null ], [ null, {
+    "position" : {
+      "x" : 2,
+      "y" : 1
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 1,
+      "y" : 1
+    }, {
+      "x" : 3,
+      "y" : 1
+    }, null, null ]
+  }, null, null, {
+    "position" : {
+      "x" : 2,
+      "y" : 4
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 1,
+      "y" : 4
+    }, {
+      "x" : 3,
+      "y" : 4
+    }, null, null ]
+  }, null ], [ null, {
+    "position" : {
+      "x" : 3,
+      "y" : 1
+    },
+    "monstre" : {
+      "position" : {
+        "x" : 0,
+        "y" : 0
+      },
+      "nom" : "Squelette",
+      "vieMax" : 5,
+      "vie" : 0
+    },
+    "tresor" : {
+      "nom" : "Epee",
+      "vie" : 0,
+      "degats" : 3
+    },
+    "portes" : [ {
+      "x" : 2,
+      "y" : 1
+    }, {
+      "x" : 4,
+      "y" : 1
+    }, null, {
+      "x" : 3,
+      "y" : 2
+    } ]
+  }, {
+    "position" : {
+      "x" : 3,
+      "y" : 2
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ null, null, {
+      "x" : 3,
+      "y" : 1
+    }, {
+      "x" : 3,
+      "y" : 3
+    } ]
+  }, {
+    "position" : {
+      "x" : 3,
+      "y" : 3
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ null, null, {
+      "x" : 3,
+      "y" : 2
+    }, {
+      "x" : 3,
+      "y" : 4
+    } ]
+  }, {
+    "position" : {
+      "x" : 3,
+      "y" : 4
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 2,
+      "y" : 4
+    }, {
+      "x" : 4,
+      "y" : 4
+    }, {
+      "x" : 3,
+      "y" : 3
+    }, null ]
+  }, null ], [ null, {
+    "position" : {
+      "x" : 4,
+      "y" : 1
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 3,
+      "y" : 1
+    }, {
+      "x" : 5,
+      "y" : 1
+    }, null, null ]
+  }, null, null, {
+    "position" : {
+      "x" : 4,
+      "y" : 4
+    },
+    "monstre" : {
+      "position" : {
+        "x" : 0,
+        "y" : 0
+      },
+      "nom" : "Orc",
+      "vieMax" : 5,
+      "vie" : 5
+    },
+    "tresor" : {
+      "nom" : "Epee Longue",
+      "vie" : 0,
+      "degats" : 5
+    },
+    "portes" : [ {
+      "x" : 3,
+      "y" : 4
+    }, null, null, {
+      "x" : 4,
+      "y" : 5
+    } ]
+  }, {
+    "position" : {
+      "x" : 4,
+      "y" : 5
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ null, {
+      "x" : 5,
+      "y" : 5
+    }, {
+      "x" : 4,
+      "y" : 4
+    }, null ]
+  } ], [ {
+    "position" : {
+      "x" : 5,
+      "y" : 0
+    },
+    "monstre" : {
+      "position" : {
+        "x" : 0,
+        "y" : 0
+      },
+      "nom" : "Loup",
+      "vieMax" : 5,
+      "vie" : 5
+    },
+    "tresor" : null,
+    "portes" : [ null, null, null, {
+      "x" : 5,
+      "y" : 1
+    } ]
+  }, {
+    "position" : {
+      "x" : 5,
+      "y" : 1
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 4,
+      "y" : 1
+    }, null, {
+      "x" : 5,
+      "y" : 0
+    }, null ]
+  }, null, null, null, {
+    "position" : {
+      "x" : 5,
+      "y" : 5
+    },
+    "monstre" : null,
+    "tresor" : null,
+    "portes" : [ {
+      "x" : 4,
+      "y" : 5
+    }, null, null, null ]
+  } ] ]
+}

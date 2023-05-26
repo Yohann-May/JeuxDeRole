@@ -68,10 +68,11 @@ public class BoundaryMaitreDuJeu {
             y = Clavier.entrerClavierInt();
             if (x > xMax || y > yMax)
                 System.out.println("La position doit etre comprise dans la taille du labyrinthe (X=" + xMax + " Y=" + yMax);
-        } while (x < xMax && y < yMax);
+        } while (x > xMax-1 || y > yMax-1);
         System.out.print("Voulez-vous creer un Monstre dans cette salle (Oui (1) - Non (2)) ? ");
         if (Clavier.entrerClavierInt() == 1)
             m = BoundaryMaitreDuJeu.creerMonstre();
+        else {};
         System.out.print("Voulez-vous creer un Tresor dans cette salle (Oui (1) - Non (2)) ? ");
         if (Clavier.entrerClavierInt() == 1)
             e = BoundaryMaitreDuJeu.creerEquipement();
